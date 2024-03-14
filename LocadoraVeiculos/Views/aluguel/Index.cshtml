@@ -1,0 +1,36 @@
+@page
+@model IEnumerable<LocadoraVeiculos.Models.Aluguel>
+
+<h2>Lista de Aluguéis</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Veículo</th>
+            <th>Cliente</th>
+            <th>Data de Início</th>
+            <th>Data de Fim</th>
+            <th>Valor do Aluguel</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var aluguel in Model)
+        {
+            <tr>
+                <td>@aluguel.Id</td>
+                <td>@aluguel.Veiculo.Modelo</td>
+                <td>@aluguel.Cliente.Nome</td>
+                <td>@aluguel.DataInicio.ToShortDateString()</td>
+                <td>@aluguel.DataFim.ToShortDateString()</td>
+                <td>@aluguel.ValorAluguel.ToString("C")</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@aluguel.Id">Detalhes</a> |
+                    <a asp-action="Edit" asp-route-id="@aluguel.Id">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@aluguel.Id">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

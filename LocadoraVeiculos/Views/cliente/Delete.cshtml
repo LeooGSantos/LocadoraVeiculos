@@ -1,0 +1,17 @@
+﻿@page
+@model LocadoraVeiculos.Models.Cliente
+
+<h2>Excluir Cliente</h2>
+
+<div>
+    <h4>Id: @Model.Id</h4>
+    <h4>Nome: @Model.Nome</h4>
+    <h4>Idade: @Model.Idade</h4>
+    <h4>Endereço: @Model.Endereco</h4>
+</div>
+<form asp-action="DeleteConfirmed">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Confirmar Exclusão</button>
+    <a asp-action="Index">Cancelar</a>
+</form>
+
